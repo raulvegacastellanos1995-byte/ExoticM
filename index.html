@@ -3,375 +3,331 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exotic Market Los Del Charco</title>
+  <title>Landing QR | Tu Negocio</title>
   <style>
-    :root {
-      --gold: #f0c75e;
-      --gold-dark: #a56e11;
-      --green: #0f6a3a;
-      --green-2: #13884a;
-      --green-3: #18a558;
-      --cream: #f8f4ec;
-      --dark: #121212;
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-      --radius: 22px;
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --soft:#1f2937;
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --accent:#22c55e;
+      --accent-dark:#16a34a;
+      --shadow:0 12px 30px rgba(0,0,0,.22);
+      --radius:18px;
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-      background: #f4f1ea;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#020617 0%, #0f172a 100%);
+      color:var(--text);
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 44px 18px 52px;
-      background:
-        linear-gradient(rgba(8, 36, 21, 0.55), rgba(8, 36, 21, 0.72)),
-        url('images/fondo-principal.jpg') center/cover no-repeat;
+    .container{
+      width:min(1120px, 92%);
+      margin:0 auto;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.3;
-      pointer-events: none;
+    header{
+      padding:56px 0 28px;
+      text-align:center;
     }
 
-    .hero::before {
-      background: #1aff7a;
-      top: -80px;
-      left: -60px;
+    .hero{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      padding:36px 24px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
     }
 
-    .hero::after {
-      background: #ffd76e;
-      bottom: -120px;
-      right: -80px;
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1.1;
     }
 
-    .wrap {
-      max-width: 1140px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    .subtitle{
+      margin:0 auto;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.6;
     }
 
-    .logo-box {
-      text-align: center;
-      margin-bottom: 30px;
+    .phones{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
     }
 
-    .logo {
-      width: min(100%, 430px);
-      display: block;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 14px 20px rgba(0,0,0,.35));
+    .phone-card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      padding:18px;
+      text-align:left;
+      box-shadow:var(--shadow);
     }
 
-    .brand-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 22px;
-      text-align: center;
+    .phone-card h3{
+      margin:0 0 8px;
+      font-size:1.05rem;
     }
 
-    .brand-word {
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      -webkit-text-stroke: 2px #1b1304;
-      text-shadow:
-        0 4px 0 #6b4307,
-        0 8px 18px rgba(0,0,0,0.45);
-      line-height: 0.95;
+    .phone-card p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
-    .brand-word.exotic {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+    .btn{
+      display:inline-block;
+      width:100%;
+      text-align:center;
+      background:var(--accent);
+      color:white;
+      text-decoration:none;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.2s ease;
     }
 
-    .brand-word.market {
-      font-size: clamp(2.5rem, 6.2vw, 4.8rem);
+    .btn:hover{ background:var(--accent-dark); transform:translateY(-1px); }
+
+    section{
+      padding:20px 0 58px;
     }
 
-    .brand-word.charco {
-      font-size: clamp(1.5rem, 3.6vw, 2.7rem);
-      letter-spacing: 2px;
+    .section-title{
+      font-size:1.8rem;
+      margin:12px 0 8px;
+      text-align:center;
     }
 
-    .contact-panel {
-      max-width: 660px;
-      margin: 0 auto;
-      display: grid;
-      gap: 14px;
+    .section-text{
+      text-align:center;
+      color:var(--muted);
+      max-width:720px;
+      margin:0 auto 28px;
+      line-height:1.6;
     }
 
-    .wa-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      text-decoration: none;
-      color: #fff;
-      font-size: clamp(1.25rem, 3vw, 2rem);
-      font-weight: 900;
-      padding: 20px 22px;
-      border-radius: 22px;
-      border: 2px solid rgba(240, 199, 94, 0.95);
-      background: linear-gradient(180deg, rgba(24,165,88,0.96), rgba(8,96,49,0.96));
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.16) inset,
-        0 0 24px rgba(34, 255, 123, 0.45),
-        0 12px 30px rgba(0,0,0,0.3);
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-      backdrop-filter: blur(2px);
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
     }
 
-    .wa-btn:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.22) inset,
-        0 0 34px rgba(57, 255, 144, 0.65),
-        0 18px 36px rgba(0,0,0,0.34);
-      filter: saturate(1.08);
+    .product{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    .wa-icon {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--green-3);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.22);
+    .product button{
+      border:none;
+      padding:0;
+      width:100%;
+      background:none;
+      cursor:pointer;
     }
 
-    .wa-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: currentColor;
+    .product img{
+      display:block;
+      width:100%;
+      height:230px;
+      object-fit:cover;
     }
 
-    .products {
-      padding: 38px 18px 70px;
-      background: linear-gradient(180deg, #f6f2eb 0%, #ece7df 100%);
-      color: #17311f;
+    .product-info{
+      padding:16px;
     }
 
-    .notice {
-      text-align: center;
-      font-weight: 900;
-      color: #114d2d;
-      font-size: clamp(1.3rem, 2.8vw, 2.2rem);
-      margin: 0 0 26px;
+    .product-info h3{
+      margin:0 0 8px;
+      font-size:1.1rem;
     }
 
-    .grid {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+    .product-info p{
+      margin:0 0 10px;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.95rem;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-      position: relative;
+    .price{
+      font-weight:700;
+      font-size:1.08rem;
     }
 
-    .card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-      background: #ececec;
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:999;
     }
 
-    .card-body {
-      padding: 14px 14px 18px;
+    .modal.active{ display:flex; }
+
+    .modal-content{
+      position:relative;
+      max-width:min(920px, 95vw);
+      max-height:92vh;
     }
 
-    .product-name {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #1f2a22;
+    .modal img{
+      width:100%;
+      max-height:92vh;
+      object-fit:contain;
+      border-radius:18px;
+      box-shadow:var(--shadow);
     }
 
-    .price {
-      display: inline-block;
-      background: linear-gradient(180deg, #1ea95c, #0a7240);
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 900;
-      padding: 8px 16px;
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(15, 107, 58, 0.25);
+    .close{
+      position:absolute;
+      top:-14px;
+      right:-14px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:999px;
+      background:white;
+      font-size:1.3rem;
+      cursor:pointer;
+      box-shadow:var(--shadow);
     }
 
-    .footer-space {
-      height: 18px;
+    footer{
+      padding:18px 0 40px;
+      color:#94a3b8;
+      text-align:center;
+      font-size:.92rem;
     }
 
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .card img {
-        height: 240px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding-top: 26px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .wa-btn {
-        font-size: 1.35rem;
-        padding: 18px 16px;
-      }
-
-      .card img {
-        height: 260px;
-      }
+    @media (max-width:640px){
+      .hero{padding:28px 18px}
+      .product img{height:210px}
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="wrap">
-      <div class="logo-box">
-        <!-- CAMBIA EL LOGO AQUÍ -->
-        <img class="logo" src="https://1drv.ms/i/c/314c67db70f798b2/IQBeccR3v6_ORZ-M49fA4c1ZAf_CRyiOP81xANOpdMGp1DM?e=RH2Cuu" alt="Exotic Market logo" />
+  <div class="container">
+    <header>
+      <div class="hero">
+        <h1>Contáctanos por WhatsApp</h1>
+        <p class="subtitle">
+          Elige el número correcto según el área que necesites. Más abajo puedes ver nuestros productos y tocar cualquier imagen para ampliarla.
+        </p>
 
-        <div class="brand-stack">
-          <div class="brand-word exotic">EXOTIC</div>
-          <div class="brand-word market">MARKET</div>
-          <div class="brand-word charco">LOS DEL CHARCO</div>
+        <div class="phones">
+          <!-- CAMBIA LOS NÚMEROS AQUÍ -->
+          <div class="phone-card">
+            <h3>Ventas</h3>
+            <p>Atención directa para cotizaciones y pedidos.</p>
+            <a class="btn" href="https://wa.me/523221217588?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos" target="_blank">Abrir WhatsApp</a>
+          </div>
+
+          <div class="phone-card">
+            <h3>Soporte</h3>
+            <p>Ayuda con pedidos, seguimiento o dudas.</p>
+            <a class="btn" href="https://wa.me/521234567890?text=Hola,%20necesito%20ayuda%20con%20mi%20pedido" target="_blank">Abrir WhatsApp</a>
+          </div>
+
+          <div class="phone-card">
+            <h3>Mayoreo</h3>
+            <p>Precios especiales para compras grandes.</p>
+            <a class="btn" href="https://wa.me/529991112233?text=Hola,%20quiero%20informaci%C3%B3n%20de%20mayoreo" target="_blank">Abrir WhatsApp</a>
+          </div>
         </div>
       </div>
+    </header>
 
-      <div class="contact-panel">
-        <!-- CAMBIA EL NÚMERO O EL MENSAJE EN CADA BOTÓN -->
-        <a class="wa-btn" href="https://wa.me/523221234567?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer">
-          <span class="wa-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.52 0 .19 5.33.19 11.88c0 2.1.55 4.15 1.6 5.96L0 24l6.36-1.67a11.8 11.8 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.24-6.14-3.43-8.42ZM12.07 21.7h-.01a9.74 9.74 0 0 1-4.97-1.36l-.36-.21-3.77.99 1-3.67-.23-.37a9.76 9.76 0 0 1-1.5-5.2c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.92 2.87a9.7 9.7 0 0 1 2.87 6.92c0 5.41-4.4 9.82-9.77 9.82Zm5.38-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.08-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.73-1.61-2.02-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.5.14-.17.19-.29.29-.49.1-.19.05-.37-.02-.51-.07-.15-.65-1.56-.89-2.14-.23-.55-.47-.48-.65-.49l-.56-.01c-.19 0-.5.07-.77.37-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.19 3.03.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.97-1.38.24-.68.24-1.27.17-1.39-.07-.12-.27-.19-.56-.34Z"/></svg>
-          </span>
-          <span>322-123-4567</span>
-        </a>
+    <section>
+      <h2 class="section-title">Nuestros productos</h2>
+      <p class="section-text">
+        Toca cualquier imagen para verla más grande. Puedes cambiar productos, fotos, nombres, descripciones y precios editando este mismo archivo.
+      </p>
 
-        <a class="wa-btn" href="https://wa.me/523221234567?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer">
-          <span class="wa-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.52 0 .19 5.33.19 11.88c0 2.1.55 4.15 1.6 5.96L0 24l6.36-1.67a11.8 11.8 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.24-6.14-3.43-8.42ZM12.07 21.7h-.01a9.74 9.74 0 0 1-4.97-1.36l-.36-.21-3.77.99 1-3.67-.23-.37a9.76 9.76 0 0 1-1.5-5.2c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.92 2.87a9.7 9.7 0 0 1 2.87 6.92c0 5.41-4.4 9.82-9.77 9.82Zm5.38-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.08-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.73-1.61-2.02-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.5.14-.17.19-.29.29-.49.1-.19.05-.37-.02-.51-.07-.15-.65-1.56-.89-2.14-.23-.55-.47-.48-.65-.49l-.56-.01c-.19 0-.5.07-.77.37-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.19 3.03.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.97-1.38.24-.68.24-1.27.17-1.39-.07-.12-.27-.19-.56-.34Z"/></svg>
-          </span>
-          <span>322-123-4567</span>
-        </a>
-
-        <a class="wa-btn" href="https://wa.me/523221234567?text=Hola%2C%20quiero%20cotizar%20productos" target="_blank" rel="noopener noreferrer">
-          <span class="wa-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.52 0 .19 5.33.19 11.88c0 2.1.55 4.15 1.6 5.96L0 24l6.36-1.67a11.8 11.8 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.24-6.14-3.43-8.42ZM12.07 21.7h-.01a9.74 9.74 0 0 1-4.97-1.36l-.36-.21-3.77.99 1-3.67-.23-.37a9.76 9.76 0 0 1-1.5-5.2c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.92 2.87a9.7 9.7 0 0 1 2.87 6.92c0 5.41-4.4 9.82-9.77 9.82Zm5.38-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.08-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.73-1.61-2.02-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.5.14-.17.19-.29.29-.49.1-.19.05-.37-.02-.51-.07-.15-.65-1.56-.89-2.14-.23-.55-.47-.48-.65-.49l-.56-.01c-.19 0-.5.07-.77.37-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.19 3.03.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.97-1.38.24-.68.24-1.27.17-1.39-.07-.12-.27-.19-.56-.34Z"/></svg>
-          </span>
-          <span>322-123-4567</span>
-        </a>
-
-        <a class="wa-btn" href="https://wa.me/523221234567?text=Hola%2C%20quiero%20ver%20disponibilidad" target="_blank" rel="noopener noreferrer">
-          <span class="wa-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.52 0 .19 5.33.19 11.88c0 2.1.55 4.15 1.6 5.96L0 24l6.36-1.67a11.8 11.8 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.24-6.14-3.43-8.42ZM12.07 21.7h-.01a9.74 9.74 0 0 1-4.97-1.36l-.36-.21-3.77.99 1-3.67-.23-.37a9.76 9.76 0 0 1-1.5-5.2c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.92 2.87a9.7 9.7 0 0 1 2.87 6.92c0 5.41-4.4 9.82-9.77 9.82Zm5.38-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.08-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.73-1.61-2.02-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.5.14-.17.19-.29.29-.49.1-.19.05-.37-.02-.51-.07-.15-.65-1.56-.89-2.14-.23-.55-.47-.48-.65-.49l-.56-.01c-.19 0-.5.07-.77.37-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.19 3.03.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.97-1.38.24-.68.24-1.27.17-1.39-.07-.12-.27-.19-.56-.34Z"/></svg>
-          </span>
-          <span>322-123-4567</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="products">
-    <div class="wrap">
-      <h2 class="notice">*El envío no está incluido*</h2>
-
-      <div class="grid">
-        <!-- PRODUCTO 1 -->
-        <article class="card">
-          <img src="images/producto-1.jpg" alt="Producto 1" />
-          <div class="card-body">
-            <h3 class="product-name">Cheetos Flamin Hot</h3>
-            <span class="price">$45</span>
+      <div class="products">
+        <!-- CAMBIA LOS PRODUCTOS AQUÍ -->
+        <article class="product">
+          <button type="button" onclick="openModal('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80')">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Producto 1">
+          </button>
+          <div class="product-info">
+            <h3>Producto 1</h3>
+            <p>Descripción breve del producto. Aquí puedes poner talla, modelo o material.</p>
+            <div class="price">$499 MXN</div>
           </div>
         </article>
 
-        <!-- PRODUCTO 2 -->
-        <article class="card">
-          <img src="images/producto-2.jpg" alt="Producto 2" />
-          <div class="card-body">
-            <h3 class="product-name">Vaso de fruta enchilada</h3>
-            <span class="price">$60</span>
+        <article class="product">
+          <button type="button" onclick="openModal('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80')">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Producto 2">
+          </button>
+          <div class="product-info">
+            <h3>Producto 2</h3>
+            <p>Descripción breve del producto. También puedes agregar disponibilidad.</p>
+            <div class="price">$699 MXN</div>
           </div>
         </article>
 
-        <!-- PRODUCTO 3 -->
-        <article class="card">
-          <img src="images/producto-3.jpg" alt="Producto 3" />
-          <div class="card-body">
-            <h3 class="product-name">Mix botanero</h3>
-            <span class="price">$85</span>
-          </div>
-        </article>
-
-        <!-- PRODUCTO 4 -->
-        <article class="card">
-          <img src="images/producto-4.jpg" alt="Producto 4" />
-          <div class="card-body">
-            <h3 class="product-name">Piña enchilada</h3>
-            <span class="price">$35</span>
-          </div>
-        </article>
-
-        <!-- PRODUCTO 5 -->
-        <article class="card">
-          <img src="images/producto-5.jpg" alt="Producto 5" />
-          <div class="card-body">
-            <h3 class="product-name">Bebida preparada</h3>
-            <span class="price">$70</span>
-          </div>
-        </article>
-
-        <!-- PRODUCTO 6 -->
-        <article class="card">
-          <img src="images/producto-6.jpg" alt="Producto 6" />
-          <div class="card-body">
-            <h3 class="product-name">Gomitas enchiladas</h3>
-            <span class="price">$55</span>
+        <article class="product">
+          <button type="button" onclick="openModal('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Producto 3">
+          </button>
+          <div class="product-info">
+            <h3>Producto 3</h3>
+            <p>Descripción breve del producto. Puedes usar tu propia imagen en vez de estas.</p>
+            <div class="price">$899 MXN</div>
           </div>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="footer-space"></div>
+    <footer>
+      © 2026 Tu Negocio · Landing sencilla para QR y WhatsApp.
+    </footer>
+  </div>
+
+  <div class="modal" id="imageModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal(event)">×</button>
+      <img id="modalImage" src="" alt="Imagen ampliada">
+    </div>
+  </div>
+
+  <script>
+    function openModal(src){
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = src;
+      modal.classList.add('active');
+    }
+
+    function closeModal(event){
+      if(event.target.id === 'imageModal' || event.target.classList.contains('close')){
+        document.getElementById('imageModal').classList.remove('active');
+      }
+    }
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        document.getElementById('imageModal').classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
