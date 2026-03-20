@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Los Del Charco Exotic Market</title>
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
@@ -72,7 +71,8 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.22) 45%, rgba(0,0,0,.04) 100%);
+        linear-gradient(to top, rgba(0,0,0,.74) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,.05) 100%),
+        linear-gradient(to right, rgba(255,255,255,.04), rgba(255,255,255,0));
       pointer-events:none;
     }
 
@@ -92,43 +92,95 @@
       position:relative;
       overflow:hidden;
       display:flex;
+      flex-direction:column;
       align-items:center;
       justify-content:center;
       width:100%;
-      color:#fff;
-      padding:13px;
+      min-height:78px;
+      text-align:center;
+      color:#ffffff;
+      text-decoration:none;
+      padding:10px 12px;
       border-radius:16px;
       font-weight:700;
-      text-decoration:none;
-      border:1px solid rgba(255,255,255,.25);
-      background:rgba(255,255,255,.15);
+      letter-spacing:.3px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.14);
       backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
       box-shadow:
         0 10px 30px rgba(0,0,0,.28),
-        0 0 18px rgba(34,197,94,.25);
-      transition:.25s;
+        inset 0 1px 0 rgba(255,255,255,.16),
+        0 0 18px rgba(255,255,255,.10),
+        0 0 28px rgba(34,197,94,.18);
+      transition:.25s ease;
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+      pointer-events:none;
     }
 
     .btn:hover{
-      transform:translateY(-2px) scale(1.03);
-      background:rgba(255,255,255,.25);
+      transform:translateY(-2px) scale(1.02);
+      background:rgba(255,255,255,.22);
+      border-color:rgba(255,255,255,.34);
       box-shadow:
         0 14px 34px rgba(0,0,0,.34),
-        0 0 28px rgba(34,197,94,.4);
+        inset 0 1px 0 rgba(255,255,255,.22),
+        0 0 22px rgba(255,255,255,.18),
+        0 0 38px rgba(34,197,94,.28);
     }
 
-    /* 🔥 TÍTULO NUEVO */
+    .btn-main{
+      font-family:'Bebas Neue', sans-serif;
+      font-size:1.15rem;
+      letter-spacing:1.2px;
+      line-height:1;
+      color:#facc15;
+      text-shadow:
+        0 2px 0 #000,
+        0 0 8px rgba(250,204,21,.55),
+        0 0 20px rgba(34,197,94,.25);
+      z-index:1;
+    }
+
+    .btn-sub{
+      margin-top:6px;
+      font-size:.95rem;
+      color:#ffffff;
+      text-shadow:0 1px 10px rgba(0,0,0,.28);
+      z-index:1;
+    }
+
+    .subtitle{
+      margin:14px auto 0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.5;
+      text-align:center;
+    }
+
+    section{
+      padding:18px 0 58px;
+    }
+
     .section-title{
       font-family:'Bebas Neue', sans-serif;
       font-size:3.2rem;
       letter-spacing:3px;
       text-align:center;
       color:#facc15;
-      margin-top:20px;
+      margin:14px 0 8px;
       text-shadow:
         0 3px 0 #000,
-        0 0 15px rgba(250,204,21,0.7),
-        0 0 30px rgba(34,197,94,0.4);
+        0 0 15px rgba(250,204,21,.7),
+        0 0 30px rgba(34,197,94,.4);
     }
 
     .section-text{
@@ -136,31 +188,49 @@
       color:#e2e8f0;
       max-width:720px;
       margin:10px auto 28px;
+      line-height:1.6;
       font-size:1.1rem;
-      text-shadow:0 0 10px rgba(0,0,0,0.6);
+      text-shadow:0 0 10px rgba(0,0,0,.6);
     }
 
     .products{
+      width:100%;
       max-width:1120px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:22px;
+      align-items:stretch;
     }
 
     .product{
       background:var(--card);
-      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
       overflow:hidden;
       box-shadow:var(--shadow);
-      transition:.25s;
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+      transition:.25s ease;
     }
 
     .product:hover{
-      transform:translateY(-5px);
+      transform:translateY(-4px);
+      box-shadow:0 18px 38px rgba(0,0,0,.30);
+    }
+
+    .product button{
+      border:none;
+      padding:0;
+      width:100%;
+      background:none;
+      cursor:pointer;
+      display:block;
     }
 
     .product img{
+      display:block;
       width:100%;
       height:260px;
       object-fit:cover;
@@ -170,79 +240,194 @@
       padding:16px;
     }
 
+    .product-info h3{
+      margin:0 0 8px;
+      font-size:1.15rem;
+    }
+
+    .product-info p{
+      margin:0 0 10px;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.95rem;
+    }
+
     .price{
       font-weight:700;
+      font-size:1.08rem;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:999;
+    }
+
+    .modal.active{ display:flex; }
+
+    .modal-content{
+      position:relative;
+      max-width:min(920px, 95vw);
+      max-height:92vh;
+    }
+
+    .modal img{
+      width:100%;
+      max-height:92vh;
+      object-fit:contain;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .close{
+      position:absolute;
+      top:-14px;
+      right:-14px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:999px;
+      background:white;
+      font-size:1.3rem;
+      cursor:pointer;
+      box-shadow:var(--shadow);
     }
 
     footer{
-      padding:20px;
-      text-align:center;
+      padding:18px 0 40px;
       color:#94a3b8;
+      text-align:center;
+      font-size:.92rem;
     }
 
-    @media(max-width:700px){
+    @media (max-width: 900px){
+      .hero-banner{
+        height:300px;
+      }
+
+      .products{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px){
+      .hero{
+        padding:14px;
+      }
+
+      .hero-banner{
+        height:260px;
+      }
+
       .hero-buttons{
         grid-template-columns:1fr;
+        width:88%;
+        bottom:12px;
+      }
+
+      .btn{
+        min-height:68px;
+        padding:10px 12px;
+      }
+
+      .btn-main{
+        font-size:1rem;
+      }
+
+      .btn-sub{
+        font-size:.88rem;
       }
 
       .products{
         grid-template-columns:1fr;
       }
+
+      .product img{
+        height:220px;
+      }
+
+      .section-title{
+        font-size:2.5rem;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <header>
       <div class="hero">
         <div class="hero-container">
-          <img class="hero-banner" src="imagenes/banner-logo.png">
+          <img class="hero-banner" src="imagenes/banner-logo.png" alt="Exotic Market Los del Charco">
           <div class="hero-overlay"></div>
 
           <div class="hero-buttons">
-            <a class="btn" href="https://wa.me/523221217588">322 121 7588</a>
-            <a class="btn" href="https://wa.me/523222632125">322 263 2125</a>
-            <a class="btn" href="https://wa.me/523224380468">322 438 0468</a>
+            <a class="btn" href="https://wa.me/523221217588?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank">
+              <span class="btn-main">🔥 PEDIR AHORA</span>
+              <span class="btn-sub">322 121 7588</span>
+            </a>
+
+            <a class="btn" href="https://wa.me/523222632125?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank">
+              <span class="btn-main">⚡ ORDENAR YA</span>
+              <span class="btn-sub">322 263 2125</span>
+            </a>
+
+            <a class="btn" href="https://wa.me/523224380468?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank">
+              <span class="btn-main">💬 WHATSAPP DIRECTO</span>
+              <span class="btn-sub">322 438 0468</span>
+            </a>
           </div>
         </div>
+
+        <p class="subtitle">
+          Elige el número con quien te quieres comunicar por WhatsApp. Más abajo puedes ver nuestra variedad de productos y precio.
+        </p>
       </div>
     </header>
 
     <section>
       <h2 class="section-title">EXOTIC SELECTION</h2>
-
       <p class="section-text">
         🛵 Entregas inmediatas! Cotiza envío por WhatsApp en los números de arriba.
       </p>
 
       <div class="products">
-        <div class="product">
-          <img src="imagenes/producto1.png">
+        <article class="product">
+          <button type="button" onclick="openModal('imagenes/producto1.png')">
+            <img src="imagenes/producto1.png" alt="Onza 28g">
+          </button>
           <div class="product-info">
             <h3>Onza - 28g</h3>
-            <p>Variedad Gelato, Cotton Candy, OG</p>
+            <p>Variedad de onzas, Gelato, Cotton Candy, OG. (Pregunta por variedad)</p>
             <div class="price">$800 MXN</div>
           </div>
-        </div>
+        </article>
 
-        <div class="product">
-          <img src="imagenes/producto2.png">
+        <article class="product">
+          <button type="button" onclick="openModal('imagenes/producto2.png')">
+            <img src="imagenes/producto2.png" alt="Mini Onza 7g">
+          </button>
           <div class="product-info">
             <h3>Mini Onza - 7g</h3>
-            <p>Gelato, Candy</p>
+            <p>Gelato, Candy (Pregunta por variedad).</p>
             <div class="price">$350 MXN</div>
           </div>
-        </div>
+        </article>
 
-        <div class="product">
-          <img src="imagenes/producto3.png">
+        <article class="product">
+          <button type="button" onclick="openModal('imagenes/producto3.png')">
+            <img src="imagenes/producto3.png" alt="Promo 3 Conos RAW">
+          </button>
           <div class="product-info">
             <h3>Promo 3 Conos RAW</h3>
-            <p>Hibrida, Sativa o Indica</p>
+            <p>Promoción de 3 conos RAW Híbrida, Sativa o Indica.</p>
             <div class="price">$250 MXN</div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -250,5 +435,33 @@
       © 2026 Exotic Market Los Del Charco
     </footer>
   </div>
+
+  <div class="modal" id="imageModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal(event)">×</button>
+      <img id="modalImage" src="" alt="Imagen ampliada">
+    </div>
+  </div>
+
+  <script>
+    function openModal(src){
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = src;
+      modal.classList.add('active');
+    }
+
+    function closeModal(event){
+      if(event.target.id === 'imageModal' || event.target.classList.contains('close')){
+        document.getElementById('imageModal').classList.remove('active');
+      }
+    }
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        document.getElementById('imageModal').classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
